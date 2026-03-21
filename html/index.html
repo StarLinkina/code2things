@@ -6,41 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>从代码到实物-周韬日志网站</title>
 
-    <style>
-        h1 {
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            font-size: 45px;
-            font-weight: bold;
-        }
-
-        .image-button {
-            display: inline-block;
-            padding: 10px 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .image-button img {
-            width: 180px;
-            height: 180px;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-    </style>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    </link>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Code2Things-Log</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">日志</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">关于我</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <h1>code2things-log</h1>
-    <p style="text-align: center; font-size: 20px;">在这个日志网站上我将会记录在<b>从代码到实物</b>这门课程的学习和实践过程</p>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="text-center mb-4">
+                    <h1 class="display-4 fw-bold text-primary">Code2Things-Log</h1>
+                    <p class="lead">在这个日志网站上我将会记录在<strong>从代码到实物</strong>这门课程的学习和实践过程</p>
+                </div>
 
-    <hr>
+                <hr class="my-5">
+                <h2 class="text-center mb-4">学习日志</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">第1周学习日志</h5>
+                                <p class="card-text">记录第一周的学习内容和实践过程。</p>
+                                <a href="week1.html" class="btn btn-outline-primary">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">第2周学习日志</h5>
+                                <p class="card-text">记录第二周的学习内容和实践过程。</p>
+                                <a href="week2.html" class="btn btn-outline-primary">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">第3周学习日志</h5>
+                                <p class="card-text">记录第三周的学习内容和实践过程。</p>
+                                <a href="week3.html" class="btn btn-outline-primary">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <div class="text-center">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <img src="images/selfie.jpg" alt="个人图片" class="img-fluid rounded-circle">
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="card-title">个人介绍</h5>
+                                    <p class="card-text">欢迎访问我的日志网站，这里记录了我学习<strong>从代码到实物</strong>的过程。</p>
+                                    <a href="about.html" class="btn btn-primary">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <a href="#" class="image-button">
-        <img src="images/selfie.jpg" alt="个人图片">
-    </a>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
