@@ -1,36 +1,17 @@
-# code2things周韬
+# code2things — Zhou Tao
 
-#### Description
-从代码到实物：周韬的仓库
+#### Introduction
+Code to Things: Zhou Tao's repository.
 
-#### Software Architecture
-Software architecture description
+In this project I keep a learning log for the course "Code to Things".
+It also records my progress learning front-end web development.
+
+#### Architecture
+This project includes the Bootstrap framework.
+However, most pages are implemented using plain HTML, so the site appearance is relatively simple.
 
 #### Installation
+Fork this repository and pull it to your local machine, then open `index.html` in your browser to view the site.
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Instructions
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
-
-
-#### Gitee Feature
-
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### Usage
+All images and videos recorded during this semester's course can be found in this project (even if they are not shown on the website).
