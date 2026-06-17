@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第7-8周学习日志 - Code2Things-Log</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Code2Things-Log</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about/about.html">关于我</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1 class="mb-4 text-center">第7-8周学习日志</h1>
+                <h3>学习内容</h3>
+                <p>这两周通过之前学习的ESP32基础知识，配合教程，实现一个基于ESP32的网络控制舵机</p>
+
+                <h3>遇到的问题</h3>
+                <p>连接网络时：常遇到连接不上热点的问题，发现如果使用热点需将热点频段改为2.4GHz</p>
+                <p>实际连接时：由于之前的ESP32-S2的部分引脚焊接失败，不得不利用数字信号给予可用引脚以高电平</p>
+
+                <h3>完成的工作</h3>
+                <p>完成的网络控制舵机演示视频如下</p>
+                <h6 class="text-center">演示视频</h6>
+                <div class="ratio ratio-16x9">
+                    <video controls class="w-100">
+                        <source src="../videos/ESP32-NetworkControlledServo.mp4" alt="舵机演示视频" type="video/mp4">
+                    </video>
+                </div>
+                <hr>
+                <a href="../index.html" class="btn btn-secondary mt-3">返回首页</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
