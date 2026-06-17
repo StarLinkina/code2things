@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中期项目日志 - Code2Things-Log</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Code2Things-Log</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about/about.html">关于我</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1 class="mb-4 text-center">中期项目日志</h1>
+                <hr>
+                <h3>项目简介</h3>
+                <p>本项目设计并实现了一款基于 ESP32-S3 的物联网多功能信息面板。
+                    设备通过 WiFi 连接互联网自动获取网络时间（NTP 协议），
+                    在 0.96 英寸 OLED 屏幕上循环显示四个信息页面，
+                    并支持局域网内浏览器远程推送文字到屏幕。
+                    作品融合了嵌入式计算、电子焊接和 3D 打印技术，
+                    可独立供电运行，具备实用性与展示性。</p>
+                <hr>
+                <h3>功能介绍</h3>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">页面</th>
+                                <th scope="col">名称</th>
+                                <th scope="col">显示内容</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>实时时钟</td>
+                                <td>年-月-日 星期 / 时:分:秒（大字显示，冒号闪烁）</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>日期详情</td>
+                                <td>月份英文名 + 日期 / 完整星期 / 当年第几天</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>局域网消息</td>
+                                <td>当前连接 SSID / 设备 IP 地址 / 信号强度 / MAC 地址</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>局域网显示文字功能</td>
+                                <td>接收同一 WiFi 下浏览器发送的文字并实时显示</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                <h3>技术栈介绍</h3>
+                <p>通信协议:</p>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">协议</th>
+                                <th scope="col">用途</th>
+                                <th scope="col">技术细节</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">I2C</th>
+                                <td>微控制器与 OLED 之间的数据传输</td>
+                                <td>两线制（SDA/SCL），速率 100kHz，7位地址寻址</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">WiFi 802.11 b/g/n</th>
+                                <td>连接互联网与局域网通信</td>
+                                <td>仅支持 2.4GHz 频段，通过路由器 DHCP 获取 IP</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">NTP</th>
+                                <td>网络时间同步</td>
+                                <td>基于 UDP 协议，同步至阿里云 NTP 服务器（ntp.aliyun.com），时区 UTC+8</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">HTTP</th>
+                                <td>局域网浏览器远程控制</td>
+                                <td>ESP32 作为 HTTP Server（端口 80），响应 GET 请求，返回 HTML 或处理文字</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>核心依赖库</p>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">库名称</th>
+                                <th scope="col">功能</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Wire.h</th>
+                                <td>I2C 通信底层驱动</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Adafruit_SSD1306</th>
+                                <td>OLED 屏幕初始化与基本操作</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Adafruit_GFX</th>
+                                <td>图形绘制（文字、线条、像素）</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">WiFi.h</th>
+                                <td>WiFi 连接管理</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">NTPClient.h</th>
+                                <td>NTP 时间同步客户端</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">WebServer.h</th>
+                                <td>轻量级 HTTP 服务器</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                <h3>项目预备</h3>
+                <p>本项目所需元件清单：</p>
+                <ul>
+                    <li>ESP32-S3 Pico（自购）</li>
+                    <li>SSD1306 OLED屏幕（自购）</li>
+                    <li>面包板</li>
+                    <li>按键</li>
+                    <li>LED</li>
+                    <li>杜邦线</li>
+                    <li>电阻</li>
+                </ul>
+                <p>本项目开发环境：</p>
+                <ul>
+                    <li>Ardiuno</li>
+                    <li>BambuStudio</li>
+                </ul>
+                <hr>
+                <h3>项目开发过程，以下仅展示我负责部分</h3>
+                <h5>环境搭建</h5>
+                <p>配置开发板选择 ESP32S3 Dev Module</p>
+                <p>安装工程所需库：Adafruit_SSD1306···</p>
+                <h5>点亮OLED屏幕</h5>
+                <p>代码展示</p>
+                <div class="mb-3">
+                    <textarea id="codeExample" class="form-control" rows="8" readonly style="font-family: Menlo, Monaco, 'Courier New', monospace;">
+#include <Adafruit_SSD1306.h>
+Adafruit_SSD1306 display(128, 64, &Wire, -1);
+
+void setup() {
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // 地址 0x3C
+  display.clearDisplay();
+  display.setTextColor(SSD1306_WHITE);
+  display.setTextSize(2);
+  display.setCursor(10, 20);
+  display.println("Hello!");                  // 将内容写入显存
+  display.display();                          // 推送到屏幕
+}
+                    </textarea>
+                </div>
+                <h6 class="text-center">烧录HELLO程序</h6>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 mb-3">
+                        <img src="../images/hello.jpg" alt="hello" class="img-fluid rounded">
+                    </div>
+                </div>
+                <h5>Wifi连接及网络时间同步</h5>
+                <p>连接 2.4GHz WiFi（ESP32 不支持 5GHz）</p>
+                <p>配置 NTP 服务器为 ntp.aliyun.com，时区 UTC+8</p>
+                <p>代码展示</p>
+                <div class="mb-3">
+                    <textarea id="codeExample" class="form-control" rows="8" readonly style="font-family: Menlo, Monaco, 'Courier New', monospace;">
+#include <WiFi.h>
+#include <NTPClient.h>
+#include <WiFiUdp.h>
+
+const char* ssid = ""; //wifi名
+const char* password = ""; //密码
+
+void setup() {
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);                     // 等待连接
+  }
+}
+
+WiFiUDP udp;
+NTPClient ntp(udp, "ntp.aliyun.com", 8*3600, 60000);  // UTC+8，每 60 秒同步
+
+void loop() {
+  ntp.update();
+  time_t now = ntp.getEpochTime();
+  struct tm* t = localtime(&now);
+  // 使用 t->tm_hour, t->tm_min, t->tm_sec ...
+}
+                    </textarea>
+                </div>
+                <h5>开发页面 UI</h5>
+                <p>设计页面布局：每页顶部标题 + 分隔线 + 正文内容 + 底部页面指示器</p>
+                <p>编写 drawFullClock()：年月日星期 + 大号时:分 + 秒数闪烁冒号</p>
+                <p>编写 drawDateInfo()：英文月份 + 完整星期 + 年内第几天</p>
+                <p>编写 drawWiFiInfo()：SSID、IP、信号强度条、MAC 地址</p>
+                <p>编写 drawWebText()：接收局域网文字并智能排版</p>
+                <p>页面指示器格式：[1/4]、[2/4]、[3/4]、[4/4]</p>
+                <hr>
+                <h3>项目演示视频</h3>
+                <div class="mx-auto" style="max-width: 480px;">
+                    <div class="ratio ratio-16x9">
+                        <video controls class="w-100">
+                            <source src="../videos/midproject.mp4" alt="项目演示视频" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <hr>
+                <h3>总结</h3>
+                <p>本项目是一次从软件到硬件、从代码到实物的全栈嵌入式开发实践。
+                    它让我深刻体会到：一块几厘米的单片机，加上网络通信能力和结构设计，
+                    就能做出一个完整、实用、可交互的产品。
+                    过程中的每一次调试、每一次报错，都是对工程思维的锤炼。
+                    这次经历不仅完成了课程要求，更激发了我对物联网开发的浓厚兴趣。</p>
+                <a href="../index.html" class="btn btn-secondary mt-3">返回首页</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
